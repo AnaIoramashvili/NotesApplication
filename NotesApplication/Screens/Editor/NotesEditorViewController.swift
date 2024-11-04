@@ -56,18 +56,6 @@ final class NotesEditorViewController: UIViewController {
         setupUI()
         setupNavigationBar()
         setupDelegates()
-        
-        if viewModel.isEditingMode {
-            titleTextView.text = viewModel.title
-            contentTextView.text = viewModel.content
-            titleTextView.textColor = .white
-            contentTextView.textColor = .white
-        } else {
-            titleTextView.text = "Title"
-            titleTextView.textColor = .gray
-            contentTextView.text = "Type something..."
-            contentTextView.textColor = .gray
-        }
     }
     
     // MARK: - UI Setup
@@ -86,6 +74,18 @@ final class NotesEditorViewController: UIViewController {
             contentTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
             contentTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        
+        if viewModel.isEditingMode {
+            titleTextView.text = viewModel.title
+            contentTextView.text = viewModel.content
+            titleTextView.textColor = .white
+            contentTextView.textColor = .white
+        } else {
+            titleTextView.text = "Title"
+            titleTextView.textColor = .gray
+            contentTextView.text = "Type something..."
+            contentTextView.textColor = .gray
+        }
     }
     
     private func setupNavigationBar() {

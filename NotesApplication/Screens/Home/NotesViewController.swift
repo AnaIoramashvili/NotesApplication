@@ -11,7 +11,7 @@ final class NotesViewController: UIViewController, CustomAlertViewDelegate, Note
     
     // MARK: - Properties
     private var notes: [Note] = []
-    private let viewModel = NotesViewModel()
+    private let viewModel: NotesViewModel
     
     // MARK: - UI Elements
     private lazy var tableView: UITableView = {
@@ -48,6 +48,17 @@ final class NotesViewController: UIViewController, CustomAlertViewDelegate, Note
         tableView.reloadData()
         DataComunication.shared.delegate = self
     }
+    
+    // MARK: - Initialization
+    init(viewModel: NotesViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - UI Setup
     private func setupUI() {
         view.backgroundColor = .myBackground

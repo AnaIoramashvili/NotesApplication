@@ -41,7 +41,7 @@ final class CustomAlertView: UIView {
         label.numberOfLines = 2
         label.textColor = .white
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 17, weight: .medium)
+        label.font = .systemFont(ofSize: 20, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
