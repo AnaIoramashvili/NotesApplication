@@ -9,21 +9,37 @@
 /* Begin PBXBuildFile section */
 		59202C682CD905660008BD59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59202C672CD905660008BD59 /* AppDelegate.swift */; };
 		59202C6A2CD905660008BD59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59202C692CD905660008BD59 /* SceneDelegate.swift */; };
-		59202C6C2CD905660008BD59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59202C6B2CD905660008BD59 /* ViewController.swift */; };
-		59202C6F2CD905660008BD59 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 59202C6E2CD905660008BD59 /* Base */; };
 		59202C712CD905680008BD59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59202C702CD905680008BD59 /* Assets.xcassets */; };
 		59202C742CD905680008BD59 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 59202C732CD905680008BD59 /* Base */; };
+		59202C7E2CD906B00008BD59 /* DataComunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59202C7D2CD906B00008BD59 /* DataComunication.swift */; };
+		59202C812CD906CA0008BD59 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59202C802CD906CA0008BD59 /* Note.swift */; };
+		59202C832CD906CF0008BD59 /* CoreDataNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59202C822CD906CF0008BD59 /* CoreDataNote.swift */; };
+		59202C872CD906FC0008BD59 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59202C862CD906FC0008BD59 /* NotesViewController.swift */; };
+		59202C892CD907010008BD59 /* NotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59202C882CD907010008BD59 /* NotesViewModel.swift */; };
+		59202C8C2CD907120008BD59 /* NotesEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59202C8B2CD907120008BD59 /* NotesEditorViewController.swift */; };
+		59202C8E2CD907180008BD59 /* NotesEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59202C8D2CD907180008BD59 /* NotesEditorViewModel.swift */; };
+		59202C912CD9072A0008BD59 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59202C902CD9072A0008BD59 /* NoteTableViewCell.swift */; };
+		59202C942CD9074A0008BD59 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59202C932CD9074A0008BD59 /* CustomAlert.swift */; };
+		59202C992CD9087D0008BD59 /* NoteApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59202C972CD9087D0008BD59 /* NoteApp.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		59202C642CD905660008BD59 /* NotesApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59202C672CD905660008BD59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59202C692CD905660008BD59 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		59202C6B2CD905660008BD59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		59202C6E2CD905660008BD59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		59202C702CD905680008BD59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59202C732CD905680008BD59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		59202C752CD905680008BD59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59202C7D2CD906B00008BD59 /* DataComunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataComunication.swift; sourceTree = "<group>"; };
+		59202C802CD906CA0008BD59 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		59202C822CD906CF0008BD59 /* CoreDataNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataNote.swift; sourceTree = "<group>"; };
+		59202C862CD906FC0008BD59 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		59202C882CD907010008BD59 /* NotesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewModel.swift; sourceTree = "<group>"; };
+		59202C8B2CD907120008BD59 /* NotesEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesEditorViewController.swift; sourceTree = "<group>"; };
+		59202C8D2CD907180008BD59 /* NotesEditorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesEditorViewModel.swift; sourceTree = "<group>"; };
+		59202C902CD9072A0008BD59 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		59202C932CD9074A0008BD59 /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		59202C982CD9087D0008BD59 /* NoteApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NoteApp.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +72,103 @@
 		59202C662CD905660008BD59 /* NotesApplication */ = {
 			isa = PBXGroup;
 			children = (
+				59202C7B2CD906960008BD59 /* App */,
+				59202C7C2CD906A40008BD59 /* Data */,
+				59202C7F2CD906C10008BD59 /* Model */,
+				59202C852CD906E10008BD59 /* Screens */,
+				59202C922CD907430008BD59 /* Alert */,
+				59202C8F2CD907220008BD59 /* Cell */,
+				59202C952CD907AA0008BD59 /* Resources */,
+				59202C962CD9086E0008BD59 /* CoreData */,
+			);
+			path = NotesApplication;
+			sourceTree = "<group>";
+		};
+		59202C7B2CD906960008BD59 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				59202C672CD905660008BD59 /* AppDelegate.swift */,
 				59202C692CD905660008BD59 /* SceneDelegate.swift */,
-				59202C6B2CD905660008BD59 /* ViewController.swift */,
-				59202C6D2CD905660008BD59 /* Main.storyboard */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		59202C7C2CD906A40008BD59 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				59202C7D2CD906B00008BD59 /* DataComunication.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		59202C7F2CD906C10008BD59 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				59202C802CD906CA0008BD59 /* Note.swift */,
+				59202C822CD906CF0008BD59 /* CoreDataNote.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		59202C842CD906D90008BD59 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				59202C862CD906FC0008BD59 /* NotesViewController.swift */,
+				59202C882CD907010008BD59 /* NotesViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		59202C852CD906E10008BD59 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				59202C8A2CD907080008BD59 /* Editor */,
+				59202C842CD906D90008BD59 /* Home */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		59202C8A2CD907080008BD59 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				59202C8D2CD907180008BD59 /* NotesEditorViewModel.swift */,
+				59202C8B2CD907120008BD59 /* NotesEditorViewController.swift */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		59202C8F2CD907220008BD59 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				59202C902CD9072A0008BD59 /* NoteTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		59202C922CD907430008BD59 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				59202C932CD9074A0008BD59 /* CustomAlert.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		59202C952CD907AA0008BD59 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				59202C702CD905680008BD59 /* Assets.xcassets */,
 				59202C722CD905680008BD59 /* LaunchScreen.storyboard */,
 				59202C752CD905680008BD59 /* Info.plist */,
 			);
-			path = NotesApplication;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		59202C962CD9086E0008BD59 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				59202C972CD9087D0008BD59 /* NoteApp.xcdatamodeld */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +231,6 @@
 			files = (
 				59202C712CD905680008BD59 /* Assets.xcassets in Resources */,
 				59202C742CD905680008BD59 /* Base in Resources */,
-				59202C6F2CD905660008BD59 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +241,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59202C6C2CD905660008BD59 /* ViewController.swift in Sources */,
+				59202C942CD9074A0008BD59 /* CustomAlert.swift in Sources */,
+				59202C812CD906CA0008BD59 /* Note.swift in Sources */,
+				59202C7E2CD906B00008BD59 /* DataComunication.swift in Sources */,
+				59202C992CD9087D0008BD59 /* NoteApp.xcdatamodeld in Sources */,
+				59202C872CD906FC0008BD59 /* NotesViewController.swift in Sources */,
+				59202C892CD907010008BD59 /* NotesViewModel.swift in Sources */,
 				59202C682CD905660008BD59 /* AppDelegate.swift in Sources */,
+				59202C8C2CD907120008BD59 /* NotesEditorViewController.swift in Sources */,
+				59202C8E2CD907180008BD59 /* NotesEditorViewModel.swift in Sources */,
+				59202C832CD906CF0008BD59 /* CoreDataNote.swift in Sources */,
 				59202C6A2CD905660008BD59 /* SceneDelegate.swift in Sources */,
+				59202C912CD9072A0008BD59 /* NoteTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		59202C6D2CD905660008BD59 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				59202C6E2CD905660008BD59 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		59202C722CD905680008BD59 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -293,10 +397,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NotesApplication/Info.plist;
+				INFOPLIST_FILE = NotesApplication/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,10 +423,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NotesApplication/Info.plist;
+				INFOPLIST_FILE = NotesApplication/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -361,6 +463,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		59202C972CD9087D0008BD59 /* NoteApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				59202C982CD9087D0008BD59 /* NoteApp.xcdatamodel */,
+			);
+			currentVersion = 59202C982CD9087D0008BD59 /* NoteApp.xcdatamodel */;
+			name = NoteApp.xcdatamodeld;
+			path = /Users/ioramka/Desktop/NotesApplication/NotesApplication/NoteApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 59202C5C2CD905660008BD59 /* Project object */;
 }
