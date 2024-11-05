@@ -5,8 +5,6 @@
 //  Created by Ana Ioramashvili on 04.11.24.
 //
 
-import Foundation
-
 final class NotesEditorViewModel {
     // MARK: - Properties
     private var existingNote: Note?

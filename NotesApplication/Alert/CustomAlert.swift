@@ -20,7 +20,7 @@ final class CustomAlertView: UIView {
     // MARK: - UI Elements
     private let infoImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "Information")
+        image.image = UIImage(named: AlertConstants.Image.infoImage)
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFit
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -30,18 +30,18 @@ final class CustomAlertView: UIView {
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .myBackground
-        view.layer.cornerRadius = 12
+        view.layer.cornerRadius = AlertConstants.Layout.containerCornerRadius
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Are you sure you want to delete note?"
+        label.text = AlertConstants.Text.title
         label.numberOfLines = 2
         label.textColor = .white
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 20, weight: .medium)
+        label.font = .systemFont(ofSize: AlertConstants.Style.titleFontSize, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -50,28 +50,26 @@ final class CustomAlertView: UIView {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.distribution = .fillEqually
-        stack.spacing = 8
+        stack.spacing = AlertConstants.Layout.stackSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
     
     private let cancelButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Cancel", for: .normal)
+        button.setTitle(AlertConstants.Text.cancelButton, for: .normal)
         button.backgroundColor = .myGreen
         button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 8
-        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = AlertConstants.Layout.buttonCornerRadius
         return button
     }()
     
     private let deleteButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Delete", for: .normal)
+        button.setTitle(AlertConstants.Text.deleteButton, for: .normal)
         button.backgroundColor = .systemRed
         button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 8
-        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = AlertConstants.Layout.buttonCornerRadius
         return button
     }()
     
@@ -87,42 +85,43 @@ final class CustomAlertView: UIView {
     }
     
     // MARK: - UI Setup
-    private func setupUI() {
-        backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        
-        addSubview(containerView)
-        containerView.addSubview(infoImage)
-        containerView.addSubview(titleLabel)
-        containerView.addSubview(buttonStackView)
-        
-        buttonStackView.addArrangedSubview(cancelButton)
-        buttonStackView.addArrangedSubview(deleteButton)
-        
+    private func setUpHierarchy() {
+        addSubviews(containerView)
+        containerView.addSubviews(infoImage, titleLabel, buttonStackView)
+        buttonStackView.addArrangedSubviews(cancelButton, deleteButton)
+    }
+    
+    private func setUpConstraints() {
         NSLayoutConstraint.activate([
             containerView.centerXAnchor.constraint(equalTo: centerXAnchor),
             containerView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            containerView.widthAnchor.constraint(equalToConstant: 330),
-            containerView.heightAnchor.constraint(equalToConstant: 235),
+            containerView.widthAnchor.constraint(equalToConstant: AlertConstants.Layout.containerWidth),
+            containerView.heightAnchor.constraint(equalToConstant: AlertConstants.Layout.containerHeight),
             
-            infoImage.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20),
-            infoImage.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-            infoImage.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
-            infoImage.heightAnchor.constraint(equalToConstant: 36),
-            infoImage.widthAnchor.constraint(equalToConstant: 36),
-
+            infoImage.topAnchor.constraint(equalTo: containerView.topAnchor, constant: AlertConstants.Layout.Padding.top),
+            infoImage.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: AlertConstants.Layout.Padding.standard),
+            infoImage.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -AlertConstants.Layout.Padding.standard),
+            infoImage.heightAnchor.constraint(equalToConstant: AlertConstants.Layout.Padding.imageSize),
+            infoImage.widthAnchor.constraint(equalToConstant: AlertConstants.Layout.Padding.imageSize),
             
-            titleLabel.topAnchor.constraint(equalTo: infoImage.topAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
+            titleLabel.topAnchor.constraint(equalTo: infoImage.topAnchor, constant: AlertConstants.Layout.Padding.top),
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: AlertConstants.Layout.Padding.standard),
+            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -AlertConstants.Layout.Padding.standard),
             
-            buttonStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
-            buttonStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-            buttonStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
-            buttonStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -16),
+            buttonStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: AlertConstants.Layout.Padding.top),
+            buttonStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: AlertConstants.Layout.Padding.standard),
+            buttonStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -AlertConstants.Layout.Padding.standard),
+            buttonStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -AlertConstants.Layout.Padding.standard),
             
-            cancelButton.heightAnchor.constraint(equalToConstant: 40),
-            deleteButton.heightAnchor.constraint(equalToConstant: 40)
+            cancelButton.heightAnchor.constraint(equalToConstant: AlertConstants.Layout.buttonHeight),
+            deleteButton.heightAnchor.constraint(equalToConstant: AlertConstants.Layout.buttonHeight)
         ])
+    }
+    
+    private func setupUI() {
+        backgroundColor = UIColor.black.withAlphaComponent(AlertConstants.Style.backgroundAlpha)
+        setUpHierarchy()
+        setUpConstraints()
     }
     
     // MARK: - Setup Actions
@@ -138,5 +137,22 @@ final class CustomAlertView: UIView {
     
     @objc private func deleteButtonTapped() {
         delegate?.didTapDeleteButton()
+    }
+}
+
+// MARK: - Extensions
+extension UIStackView {
+    func addArrangedSubviews(_ subviews: UIView...) {
+        subviews.forEach { subview in
+            addArrangedSubview(subview)
+        }
+    }
+}
+
+extension UIView {
+    func addSubviews(_ subviews: UIView...) {
+        subviews.forEach { subview in
+            addSubview(subview)
+        }
     }
 }

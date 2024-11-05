@@ -18,6 +18,7 @@ final class NotesViewController: UIViewController, CustomAlertViewDelegate, Note
         let table = UITableView()
         table.register(NoteTableViewCell.self, forCellReuseIdentifier: NoteTableViewCell.identifier)
         table.dataSource = self
+        table.delegate = self
         table.backgroundColor = .clear
         table.separatorStyle = .none
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +45,6 @@ final class NotesViewController: UIViewController, CustomAlertViewDelegate, Note
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setNavigationTitle()
         tableView.reloadData()
         DataComunication.shared.delegate = self
     }
@@ -60,24 +60,30 @@ final class NotesViewController: UIViewController, CustomAlertViewDelegate, Note
     }
     
     // MARK: - UI Setup
-    private func setupUI() {
-        view.backgroundColor = .myBackground
+    private func setUpHierarchy() {
         view.addSubview(tableView)
         view.addSubview(addButton)
-        
+    }
+    
+    private func setUpConstraints() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-            
+        
             addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24),
             addButton.widthAnchor.constraint(equalToConstant: 56),
             addButton.heightAnchor.constraint(equalToConstant: 56)
         ])
-        
+    }
+    
+    private func setupUI() {
+        setUpHierarchy()
+        setUpConstraints()
+        setNavigationTitle()
+        view.backgroundColor = .myBackground
         addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
     }
     
@@ -130,7 +136,7 @@ extension NotesViewController: NotesViewModelDelegate {
 // MARK: - TableView DataSource
 extension NotesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfNotes()
+        return viewModel.numberOfNotes
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -142,10 +148,6 @@ extension NotesViewController: UITableViewDataSource {
         cell.configure(with: note)
         cell.delegate = self
         cell.setupDeleteButton()
-        
-        cell.selectionStyle = .none
-        cell.backgroundColor = .clear
-        
         return cell
     }
 }
@@ -159,7 +161,7 @@ extension NotesViewController: UITableViewDelegate {
     }
 }
 
-// MARK: - Note Editor Delegate
+// MARK: - NoteEditorDelegate
 extension NotesViewController: NotesEditorDelegate {
     @objc private func addButtonTapped() {
         let editorVC = NotesEditorViewController()

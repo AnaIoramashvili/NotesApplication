@@ -16,7 +16,6 @@ final class NotesEditorViewController: UIViewController {
     // MARK: - Properties
     weak var delegate: NotesEditorDelegate?
     private let viewModel: NotesEditorViewModel
-    private var isEditingMode: Bool = false
     
     // MARK: - UI Components
     private let titleTextView: UITextView = {
@@ -24,7 +23,7 @@ final class NotesEditorViewController: UIViewController {
         textView.font = .systemFont(ofSize: 28, weight: .bold)
         textView.textColor = .white
         textView.backgroundColor = .clear
-        textView.textContainer.maximumNumberOfLines = 0
+        textView.textContainer.maximumNumberOfLines = .zero
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.isScrollEnabled = false
         return textView
@@ -35,9 +34,19 @@ final class NotesEditorViewController: UIViewController {
         textView.font = .systemFont(ofSize: 16)
         textView.backgroundColor = .clear
         textView.textColor = .white
-        textView.textContainer.maximumNumberOfLines = 0
+        textView.textContainer.maximumNumberOfLines = .zero
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
+    }()
+    
+    private let backButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor(white: 0, alpha: 0.3)
+        button.layer.cornerRadius = 15
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     // MARK: - Initialization
@@ -54,16 +63,17 @@ final class NotesEditorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupNavigationBar()
         setupDelegates()
     }
     
     // MARK: - UI Setup
-    private func setupUI() {
-        view.backgroundColor = .myBackground
+    private func setUpHierarchy() {
         view.addSubview(titleTextView)
         view.addSubview(contentTextView)
-        
+        view.addSubview(backButton)
+    }
+    
+    private func setUpConstraints() {
         NSLayoutConstraint.activate([
             titleTextView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             titleTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
@@ -72,9 +82,22 @@ final class NotesEditorViewController: UIViewController {
             contentTextView.topAnchor.constraint(equalTo: titleTextView.bottomAnchor, constant: 20),
             contentTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
             contentTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
-            contentTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            contentTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            backButton.widthAnchor.constraint(equalToConstant: 48),
+            backButton.heightAnchor.constraint(equalToConstant: 48)
         ])
-        
+    }
+    
+    private func setupUI() {
+        view.backgroundColor = .myBackground
+        setUpHierarchy()
+        setUpConstraints()
+        setupNavigationBar()
+        setupTextViews()
+    }
+    
+    private func setupTextViews() {
         if viewModel.isEditingMode {
             titleTextView.text = viewModel.title
             contentTextView.text = viewModel.content
@@ -89,14 +112,7 @@ final class NotesEditorViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        let backButton = UIButton(type: .custom)
-        backButton.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
-        backButton.setTitleColor(.white, for: .normal)
-        backButton.backgroundColor = UIColor(white: 0, alpha: 0.3)
-        backButton.layer.cornerRadius = 15
-        backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.addTarget(self, action: #selector(dismissViewController), for: .touchUpInside)
-
         let backButtonItem = UIBarButtonItem(customView: backButton)
         navigationItem.leftBarButtonItem = backButtonItem
         
@@ -107,11 +123,6 @@ final class NotesEditorViewController: UIViewController {
             action: #selector(saveButtonTapped)
         )
         navigationController?.navigationBar.tintColor = .white
-
-        NSLayoutConstraint.activate([
-            backButton.widthAnchor.constraint(equalToConstant: 48),
-            backButton.heightAnchor.constraint(equalToConstant: 48)
-        ])
     }
     
     private func setupDelegates() {
@@ -119,16 +130,9 @@ final class NotesEditorViewController: UIViewController {
         contentTextView.delegate = self
     }
     
-    private func populateData(with note: Note) {
-        titleTextView.text = note.title
-        contentTextView.text = note.content
-        titleTextView.textColor = .white
-        contentTextView.textColor = .white
-    }
-    
     // MARK: - Actions
     @objc private func dismissViewController() {
-        if isEditingMode {
+        if viewModel.isEditingMode {
             navigationController?.popViewController(animated: true)
         } else {
             dismiss(animated: true)

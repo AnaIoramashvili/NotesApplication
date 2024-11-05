@@ -21,6 +21,7 @@
 		59202C912CD9072A0008BD59 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59202C902CD9072A0008BD59 /* NoteTableViewCell.swift */; };
 		59202C942CD9074A0008BD59 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59202C932CD9074A0008BD59 /* CustomAlert.swift */; };
 		59202C992CD9087D0008BD59 /* NoteApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59202C972CD9087D0008BD59 /* NoteApp.xcdatamodeld */; };
+		59202C9B2CDA21670008BD59 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59202C9A2CDA21670008BD59 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		59202C902CD9072A0008BD59 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		59202C932CD9074A0008BD59 /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		59202C982CD9087D0008BD59 /* NoteApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NoteApp.xcdatamodel; sourceTree = "<group>"; };
+		59202C9A2CDA21670008BD59 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,8 +133,8 @@
 		59202C8A2CD907080008BD59 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
-				59202C8D2CD907180008BD59 /* NotesEditorViewModel.swift */,
 				59202C8B2CD907120008BD59 /* NotesEditorViewController.swift */,
+				59202C8D2CD907180008BD59 /* NotesEditorViewModel.swift */,
 			);
 			path = Editor;
 			sourceTree = "<group>";
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				59202C932CD9074A0008BD59 /* CustomAlert.swift */,
+				59202C9A2CDA21670008BD59 /* Constants.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				59202C872CD906FC0008BD59 /* NotesViewController.swift in Sources */,
 				59202C892CD907010008BD59 /* NotesViewModel.swift in Sources */,
 				59202C682CD905660008BD59 /* AppDelegate.swift in Sources */,
+				59202C9B2CDA21670008BD59 /* Constants.swift in Sources */,
 				59202C8C2CD907120008BD59 /* NotesEditorViewController.swift in Sources */,
 				59202C8E2CD907180008BD59 /* NotesEditorViewModel.swift in Sources */,
 				59202C832CD906CF0008BD59 /* CoreDataNote.swift in Sources */,

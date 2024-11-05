@@ -29,7 +29,7 @@ final class NoteTableViewCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .medium)
-        label.numberOfLines = 0
+        label.numberOfLines = .zero
         label.lineBreakMode = .byTruncatingTail
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -56,11 +56,13 @@ final class NoteTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     // MARK: - UI Setup
-    private func setupUI() {
+    private func setUpHierarchy() {
         contentView.addSubview(noteView)
         noteView.addSubview(titleLabel)
         noteView.addSubview(deleteButton)
-        
+    }
+    
+    private func setUpConstraints() {
         NSLayoutConstraint.activate([
             noteView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             noteView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
@@ -80,6 +82,13 @@ final class NoteTableViewCell: UITableViewCell {
         ])
     }
     
+    private func setupUI() {
+        setUpHierarchy()
+        setUpConstraints()
+        selectionStyle = .none
+        backgroundColor = .clear
+    }
+    
     // MARK: - Configuration
     func configure(with note: Note) {
         titleLabel.text = note.title
@@ -93,6 +102,3 @@ final class NoteTableViewCell: UITableViewCell {
         deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
     }
 }
-
-
-

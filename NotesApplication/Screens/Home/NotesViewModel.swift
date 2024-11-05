@@ -5,8 +5,6 @@
 //  Created by Ana Ioramashvili on 31.10.24.
 //
 
-import Foundation
-
 protocol NotesViewModelDelegate: AnyObject {
     func notesDidUpdate()
 }
@@ -43,8 +41,8 @@ final class NotesViewModel {
         fetchNotes()
     }
     
-    func numberOfNotes() -> Int {
-        return notes.count
+    var numberOfNotes: Int {
+        notes.count
     }
     
     func note(at index: Int) -> Note {
