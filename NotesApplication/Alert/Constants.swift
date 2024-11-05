@@ -38,3 +38,22 @@ enum AlertConstants {
         static let backgroundAlpha: CGFloat = 0.5
     }
 }
+
+
+enum NoteTableViewCellConstants {
+    static let identifier = "NoteCell"
+    static let noteViewCornerRadius: CGFloat = 8.0
+    static let noteViewTopPadding: CGFloat = 8.0
+    static let noteViewLeadingPadding: CGFloat = 16.0
+    static let noteViewWidth: CGFloat = 365.0
+    static let noteViewHeight: CGFloat = 110.0
+    static let noteViewBottomPadding: CGFloat = -8.0
+    
+    static let titleLabelTopPadding: CGFloat = 12.0
+    static let titleLabelLeadingPadding: CGFloat = 12.0
+    static let titleLabelTrailingPadding: CGFloat = -12.0
+    static let titleLabelBottomPadding: CGFloat = -12.0
+    
+    static let deleteButtonTrailingPadding: CGFloat = -20.0
+    static let deleteButtonSize: CGFloat = 34.0
+}

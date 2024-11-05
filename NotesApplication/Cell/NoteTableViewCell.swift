@@ -14,14 +14,14 @@ protocol NoteTableViewCellDelegate: AnyObject {
 final class NoteTableViewCell: UITableViewCell {
     
     // MARK: - Properties
-    static let identifier = "NoteCell"
+    static let identifier = NoteTableViewCellConstants.identifier
     weak var delegate: NoteTableViewCellDelegate?
 
     // MARK: - UI Elements
     private let noteView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.myCell
-        view.layer.cornerRadius = 8
+        view.layer.cornerRadius = NoteTableViewCellConstants.noteViewCornerRadius
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -34,7 +34,6 @@ final class NoteTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
     
     private let deleteButton: UIButton = {
         let button = UIButton()
@@ -55,6 +54,7 @@ final class NoteTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     // MARK: - UI Setup
     private func setUpHierarchy() {
         contentView.addSubview(noteView)
@@ -64,21 +64,21 @@ final class NoteTableViewCell: UITableViewCell {
     
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
-            noteView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            noteView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            noteView.widthAnchor.constraint(equalToConstant: 365),
-            noteView.heightAnchor.constraint(equalToConstant: 110),
-            noteView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            noteView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: NoteTableViewCellConstants.noteViewTopPadding),
+            noteView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: NoteTableViewCellConstants.noteViewLeadingPadding),
+            noteView.widthAnchor.constraint(equalToConstant: NoteTableViewCellConstants.noteViewWidth),
+            noteView.heightAnchor.constraint(equalToConstant: NoteTableViewCellConstants.noteViewHeight),
+            noteView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: NoteTableViewCellConstants.noteViewBottomPadding),
             
-            titleLabel.topAnchor.constraint(equalTo: noteView.topAnchor, constant: 12),
-            titleLabel.leadingAnchor.constraint(equalTo: noteView.leadingAnchor, constant: 12),
-            titleLabel.trailingAnchor.constraint(equalTo: deleteButton.leadingAnchor, constant: -12),
-            titleLabel.bottomAnchor.constraint(equalTo: noteView.bottomAnchor, constant: -12),
+            titleLabel.topAnchor.constraint(equalTo: noteView.topAnchor, constant: NoteTableViewCellConstants.titleLabelTopPadding),
+            titleLabel.leadingAnchor.constraint(equalTo: noteView.leadingAnchor, constant: NoteTableViewCellConstants.titleLabelLeadingPadding),
+            titleLabel.trailingAnchor.constraint(equalTo: deleteButton.leadingAnchor, constant: NoteTableViewCellConstants.titleLabelTrailingPadding),
+            titleLabel.bottomAnchor.constraint(equalTo: noteView.bottomAnchor, constant: NoteTableViewCellConstants.titleLabelBottomPadding),
             
             deleteButton.centerYAnchor.constraint(equalTo: noteView.centerYAnchor),
-            deleteButton.trailingAnchor.constraint(equalTo: noteView.trailingAnchor, constant: -20),
-            deleteButton.widthAnchor.constraint(equalToConstant: 34),
-            deleteButton.heightAnchor.constraint(equalToConstant: 34)
+            deleteButton.trailingAnchor.constraint(equalTo: noteView.trailingAnchor, constant: NoteTableViewCellConstants.deleteButtonTrailingPadding),
+            deleteButton.widthAnchor.constraint(equalToConstant: NoteTableViewCellConstants.deleteButtonSize),
+            deleteButton.heightAnchor.constraint(equalToConstant: NoteTableViewCellConstants.deleteButtonSize)
         ])
     }
     
@@ -93,6 +93,7 @@ final class NoteTableViewCell: UITableViewCell {
     func configure(with note: Note) {
         titleLabel.text = note.title
     }
+    
     // MARK: - Delete Button Action
     @objc private func deleteButtonTapped() {
         delegate?.didTapDeleteButton(in: self)
