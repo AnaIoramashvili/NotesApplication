@@ -5,6 +5,8 @@
 //  Created by Ana Ioramashvili on 04.11.24.
 //
 
+import Foundation
+
 final class NotesEditorViewModel {
     // MARK: - Properties
     private var existingNote: Note?
@@ -19,6 +21,10 @@ final class NotesEditorViewModel {
         return existingNote?.content ?? ""
     }
     
+    var timestamp: Date {
+        return existingNote?.timestamp ?? Date()
+    }
+    
     // MARK: - Initialization
     init(note: Note? = nil, index: Int? = nil) {
         self.existingNote = note
@@ -28,7 +34,12 @@ final class NotesEditorViewModel {
     
     // MARK: - Methods
     func saveNote(title: String, content: String) -> (note: Note, index: Int?) {
-        let note = Note(title: title, content: content)
+        let timestamp = existingNote?.timestamp ?? Date()
+        let note = Note(
+            title: title,
+            content: content,
+            timestamp: timestamp
+        )
         return (note, noteIndex)
     }
     

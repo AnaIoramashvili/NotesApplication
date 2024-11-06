@@ -37,6 +37,8 @@ final class DataComunication {
     // Fetch Notes
     func fetchNotes() -> [CoreDataNote] {
         let fetchRequest = CoreDataNote.fetchRequest() as! NSFetchRequest<CoreDataNote>
+        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
             let notes = try context.fetch(fetchRequest)
@@ -52,6 +54,7 @@ final class DataComunication {
         let note = CoreDataNote(context: context)
         note.title = title
         note.content = content
+        note.timestamp = Date()
         saveContext()
         delegate?.reloadData()
     }
@@ -70,6 +73,7 @@ final class DataComunication {
         let note = notes[index]
         note.title = title
         note.content = content
+        note.timestamp = Date()
         saveContext()
         delegate?.reloadData()
     }

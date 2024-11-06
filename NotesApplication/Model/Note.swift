@@ -10,4 +10,5 @@ import Foundation
 struct Note {
     var title: String
     var content: String
+    var timestamp: Date
 }

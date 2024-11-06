@@ -115,13 +115,6 @@ final class NotesEditorViewController: UIViewController {
         backButton.addTarget(self, action: #selector(dismissViewController), for: .touchUpInside)
         let backButtonItem = UIBarButtonItem(customView: backButton)
         navigationItem.leftBarButtonItem = backButtonItem
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Save",
-            style: .done,
-            target: self,
-            action: #selector(saveButtonTapped)
-        )
         navigationController?.navigationBar.tintColor = .white
     }
     
@@ -132,6 +125,8 @@ final class NotesEditorViewController: UIViewController {
     
     // MARK: - Actions
     @objc private func dismissViewController() {
+        saveNote()
+        
         if viewModel.isEditingMode {
             navigationController?.popViewController(animated: true)
         } else {
@@ -139,21 +134,25 @@ final class NotesEditorViewController: UIViewController {
         }
     }
     
-    @objc private func saveButtonTapped() {
-        guard let title = titleTextView.text,
-              let content = contentTextView.text,
-              viewModel.isValidNote(title: title, content: content) else {
+    private func saveNote() {
+        let title = titleTextView.text == "Title" ? "" : titleTextView.text
+        let content = contentTextView.text == "Type something..." ? "" : contentTextView.text
+        
+        guard let titleText = title,
+              let contentText = content,
+              !titleText.isEmpty || !contentText.isEmpty else {
             return
         }
         
-        let (note, index) = viewModel.saveNote(title: title, content: content)
+        let finalTitle = titleText.isEmpty ? "Untitled" : titleText
+        let finalContent = contentText.isEmpty ? "" : contentText
+        
+        let (note, index) = viewModel.saveNote(title: finalTitle, content: finalContent)
         
         if viewModel.isEditingMode {
             delegate?.didUpdateNote(note: note, at: index!)
-            navigationController?.popViewController(animated: true)
         } else {
             delegate?.didSaveNote(note: note)
-            dismiss(animated: true)
         }
     }
 }

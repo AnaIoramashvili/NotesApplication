@@ -80,6 +80,7 @@
 				59202C852CD906E10008BD59 /* Screens */,
 				59202C922CD907430008BD59 /* Alert */,
 				59202C8F2CD907220008BD59 /* Cell */,
+				59202C9C2CDBAABF0008BD59 /* Constants */,
 				59202C952CD907AA0008BD59 /* Resources */,
 				59202C962CD9086E0008BD59 /* CoreData */,
 			);
@@ -151,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				59202C932CD9074A0008BD59 /* CustomAlert.swift */,
-				59202C9A2CDA21670008BD59 /* Constants.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -172,6 +172,14 @@
 				59202C972CD9087D0008BD59 /* NoteApp.xcdatamodeld */,
 			);
 			name = CoreData;
+			sourceTree = "<group>";
+		};
+		59202C9C2CDBAABF0008BD59 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				59202C9A2CDA21670008BD59 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

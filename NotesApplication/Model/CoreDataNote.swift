@@ -10,4 +10,5 @@ import CoreData
 class CoreDataNote: NSManagedObject {
     @NSManaged var title: String!
     @NSManaged var content: String!
+    @NSManaged var timestamp: Date!
 }

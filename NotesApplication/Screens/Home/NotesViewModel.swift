@@ -5,6 +5,8 @@
 //  Created by Ana Ioramashvili on 31.10.24.
 //
 
+import Foundation
+
 protocol NotesViewModelDelegate: AnyObject {
     func notesDidUpdate()
 }
@@ -47,6 +49,10 @@ final class NotesViewModel {
     
     func note(at index: Int) -> Note {
         let coreDataNote = notes[index]
-        return Note(title: coreDataNote.title, content: coreDataNote.content)
+        return Note(
+            title: coreDataNote.title,
+            content: coreDataNote.content,
+            timestamp: coreDataNote.timestamp ?? Date()
+        )
     }
 }
